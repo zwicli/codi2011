@@ -1,0 +1,604 @@
+\section{Aproximación metodológica}
+\begin{instrucciones}
+  Esta debe reflejar la estructura lógica y el
+rigor científico del proceso de investigación, empezando por la elección de un enfoque
+metodológico específico y finalizando con la forma como se van a analizar, interpretar y presentar
+los resultados.
+\end{instrucciones}
+%%%
+
+%Final
+Para un modelo que incluya mecanismos de generación radiativa de masas de neutrinos se determina el espacio de parámetros compatible con los datos experimentales sobre física de neutrinos, se calculan los branchings de decaimiento y las secciones eficaces y se establecen correlaciones entre estos observables y los datos de física de neutrinos [7]. Para el caso de VBPR todo esto ya ha sido implementado en el programa computacional SPheno [8]. Finalmente se hace una simulación con PYTHIA [9] de la factibilidad de descubrir el modelo en aceleradores, como hemos venido haciendo con VBPR en [1], y de la viabilidad de medir las correlaciones establecidas, que es uno de los objetivos del proyecto.
+
+Como hemos ya hecho en [3], obtendremos resultados numéricos para los flujos de rayos cósmicos  producidos en el decaimiento del CMOI usando PYTHIA. A partir de los resultados se analizará el tiempo de vida del CMOI  en términos de su masa con el fin de obtener y analizar cuáles serían las regiones del espacio de parámetros restringidas o excluidas por los experimentos de rayos cósmicos.
+
+En este proyecto haremos una implementación del modelo de seesaw radiativo en Micromegas  con el cual se pueden hacer los cálculos de densidad de reliquia, secciones eficaces, amplitudes de decaimiento, etc. Una vez establecidas las regiones del espacio de parámetros relevantes, se procederá con el método para mecanismos de generación radiativa de masas de neutrinos descrito anteriormente.
+
+\newpage{}
+%%Oscar
+Para un modelo que presente un candidato a materia oscura, proponemos los siguientes pasos para determinar las restricciones de los recientes y futuros experimentos:
+1. Obtener expresiones analíticas o numéricas para los flujos de rayos cósmicos producidos en el decaimiento o aniquilación del candidato a materia oscura.
+2. Al mismo tiempo, calcular las expresiones analíticas para los decaimientos del candidato a materia oscura. Simular la producción de materia oscura en aceleradores  y su posterior decaimiento o aniquilación. Con base en lo anterior, determinar los branching ratios para diferentes canales de decaimiento de la materia oscura, analizar cuál es la dependencia con los acoplamientos y determinar cuáles serían las restricciones más fuertes provenientes de aceleradores sobre dichos acoplamientos. 
+3. Los modelos de seesaw raditivo y del doblete escalar inerte se estudiarán a través del paquete computacional micrOMEGAs, con el cual se hacen actualmente a nivel mundial los cálculos de densidad de reliquia, secciones eficaces, amplitudes de decaimiento, etc.
+4. A partir de los resultados construir figuras donde se muestre el tiempo de vida del candidato a materia oscura en términos de su masa con el fin de obtener y analizar cuáles serían las regiones del espacio de parámetros que serían excluidas por los resultados experimentales astrofísicos. 
+
+%%%Jose David
+El modelo de seesaw raditivo se estudiara a traves del paquete computacinal micrOMEGAs, con el cual se hacen actualmente a nivel mundial los calculos de densidad de reliquia, secciones eficaces, amplitudes de decaimiento, entre otros en modelos genéricos que pretendan tener canddatos para materia oscura. Además, desarrollaremos scripts que nos permitan hacer el estudio del comportamiento del sector de neutrinos del modelo, para poder compararlo con las observaciones.
+
+%%%Proyecto viejo
+Para un modelo que incluya mecanismos de generación radiativa de masas
+de neutrinos se propone el siguiente método para determinar si es
+posible verificar sus predicciones en aceleradores futuros, en
+particular si es posible la reconstrucción de la matriz de masa a
+través de observables asociados a los decaimientos de partículas del
+modelo:
+\begin{enumerate}
+\item Cálculo de todos los términos de masas de neutrinos a nivel
+  árbol y radiativos como función de los acoplamientos relevantes en
+  el Lagrangiano del modelo.
+
+\item Cálculo de autoestados de masas y ángulos de mezcla de neutrinos
+  como función de los acoplamientos relevantes en el Lagrangiano del
+  modelo.
+
+\item Determinación del espacio de parámetros compatible con los datos
+  experimentales sobre física de neutrinos a 3-sigma y de las cotas
+  experimentales sobre los observables del modelo. Esto normalmente
+  requiere la realización de programas numéricos de cálculo intensivo.
+
+\item Los parámetros que inducen masas y mezclas de neutrinos pueden
+  también ser los responsables de los decaimientos de las nuevas
+  partículas predichas por el modelo. Como ocurre, por ejemplo, con la
+  partícula supersimétrica más ligera en los modelos con violación
+  bilineal de paridad R (VBPR). Por consiguiente es necesario calcular
+  los branchings de decaimiento de esas nuevas partículas.
+
+\item Cálculo de las secciones eficaces de producción de las nuevas
+  partículas del modelo para comprobar si puede llegar a generarse la
+  suficiente estadística en los aceleradores para que los decaimientos
+  de las partículas nuevas lleguen a ser medibles.
+
+\item Establecimiento de correlaciones entre cocientes de branchings
+  de decaimientos de las nuevas partículas con la física de neutrinos.
+  Esto permitiría por un lado descartar el modelo si alguna
+  correlación no es respetada, o la posibilidad de reconstruir la
+  matriz de masa de neutrinos si se pueden medir suficientes
+  correlaciones.
+
+\item Simulación de las se nales del modelo en aceleradores para
+  determinar la viabilidad de medir los observables asociados con las
+  correlaciones de física de neutrinos.
+\end{enumerate}
+Este método ya ha sido usado parcialmente en la literatura para
+diferentes modelos.  En el modelo supersimétrico con VBPRr los pasos 1
+a 6 ya han sido desarrollados en la literatura para diferentes
+posibilidades de partícula supersimétrica más liviana.
+
+
+Todos estos decaimientos están implementadas en una versión que aún no
+es pública del programa SPHENO %\cite{hep-ph/0301101}, 
+llamada
+SPhenoRP, y de la cual disponemos gracias a su autor, y colaborador de
+éste proyecto, Werner Porod. En este proyecto queremos abordar la
+parte 7 del análisis para el decaimiento del neutralino, en
+colaboración con los Grupos del profesor Jose Valle en Valencia, al
+que pertenece el Dr Werner Porod y del Grupo de Oscar Eboli en Brasil.
+En el modelo con VBPR se predice que el cociente entre el branching
+del neutralino decayendo a $qq'\mu$ con el del neutralino decayendo a
+$qq'\tau$ debe ser aproximadamente la tangente al cuadrado del ángulo de
+mezcla atmosférico. Dicha correlación se sigue manteniendo
+aproximadamente si el par de quarks provienen del $W$. De esta manera,
+una desviación significativa de 1 para el cociente entre los
+branchings del neutralino decayendo a $W\mu$ y $W\tau$, podría excluir al
+modelo con VBPR como el único responsable de la generación de masas y
+mezclas para los neutrinos.
+
+Se calcularán los decaimientos del neutralino, usando el programa
+SPhenoRP para un punto en el espacio de parámetros supersimétrico
+representativo %\cite{Aguilar-Saavedra:2005pw} 
+donde el neutralino es
+la partícula supersimétrica más liviana. Se usará la salida del
+programa en formato SLHA %\cite{hep-ph/0407067} 
+con la información
+sobre el espectro y los branchings supersimétricos, como archivo de
+entrada de un programa que usa PYTHIA %\cite{hep-ph/0010017} para
+simular el evento en el detector ATLAS del LHC. Cuando se genera un
+evento con este programa las partículas supersimétricas producidas
+sufren decaimientos en cadena hasta decaer a dos neutralinos y a
+partículas del Modelo Estándar. Estos neutralinos a su vez decaen a
+partículas del modelo estándar. En el programa se debe entonces
+introducir una serie de cortes para comprobar si el evento contribuye
+al numero de eventos de neutralinos decayendo a $W\mu$, $N_\mu$ , o a
+$N_\tau$ . Se generan nuevos eventos aleatorios hasta alcanzar una
+estadística similar a la esperada en el LHC, es decir de millones de
+neutralinos producidos al alcanzar luminosidad de 100/fb. Se espera
+que $N_\mu$ y $N_\tau$ sean del orden de miles para que el error en la
+medida de sea suficientemente peque no. Esto podría garantizar que
+dicho cociente pueda ser medido con suficiente significancia en el
+LHC. Con el siguiente conjunto de cortes, que explota el hecho de que
+el neutralino decae exhibiendo vértices desplazados
+%\cite{hep-ph/0501153}, 
+esperamos garantizar que los números de eventos
+a $W\mu$ y a $W\tau$ sean suficientemente grandes. Se propone que un evento
+contribuye a $N_\mu$ o $N_\tau$ s\'\i: el neutralino decae dentro de la región
+de aceptancia del detector y exhibe un vértice desplazado a una
+distancia suficientemente alejada del centro de interacción; Al menos
+uno de los neutralinos decae a un $W$ acompa nado de un muon o un tau;
+El $W$ decae a un par $qq'$; Si el $W$ está acompa nado por un tau, se
+exige que el tau decaiga a través del canal a 1-prong; Los quarks
+provenientes de $W$, as\'\i{} como el muon o el tau deben impactar
+suficientes detectores de traza de modo que el vértice desplazado en
+efecto pueda reconstruirse; Para reducir el background debido a
+vértices desplazados provenientes de partículas del Modelo Estándar se
+debe exigir que la masa invariante de las trazas que convergen al
+vértice desplazado sea suficientemente grande.  Una vez obtenido el
+número de eventos a $W \mu$, $N_\mu$, y el numero de eventos a $W \tau$, $N_\tau$, se
+estimará el error en el cociente $N_\mu / N_\tau$ a partir de la raíz
+cuadrada de la suma de los inversos de los números de eventos. Si este
+error resulta ser suficientemente peque no como para que se pueda
+establecer con suficiente significancia que es diferente de cero, se
+podría establecer que dicho observable puede llegar a ser medible en
+el LHC.
+
+En el artículo internacional que se escribirá al respecto, se
+mostrarán gráficos que ilustren el efecto de los cortes más
+relevantes, y se hará énfasis en las ventajas que puede traer la
+reconstrucción completa del neutralino en la determinación del
+espectro completo supersimétrico. Algo que sólo se puede hacer en
+casos muy específicos en el Modelo Estándar Mínimo Supersimétrico (con
+conservación de paridad R).
+
+Para el refinamiento y cuantificación de los cortes propuestos se
+solicita una visita del investigador principal al Grupo de Valencia
+donde se puede contar con la asesoría de miembros de la colaboración
+ATLAS del LHC. Para la implementación de los cortes en el programa se
+solicita la visita del Profesor Oscar Eboli de Brasil a la Universidad
+de Antioquia.
+
+De otro lado, la generación de millones de eventos requiere el uso de
+técnicas de programación en paralelo que serán implementadas en los
+cluster del Grupo y del Instituto de Física de la Universidad de
+Antioquia.
+
+Se solicita un viaje del investigador principal para presentar los
+resultados en la conferencia SUSY 2007, la cual será muy importante
+pues coincidirá con el inicio de operaciones del LHC previsto para ese
+a no.
+
+Para el modelo de Zee de generación radiativa de masas de neutrinos a
+un loop, los pasos 1,2 ya han sido realizados en la literatura
+%\cite{Balaji:2001ex}.  
+Este modelo contiene un doblete de Higgs
+adicional al del Modelo Estándar, y un Higgs cargado singlete de
+SU(2). La versión que es consistente con física de neutrinos
+corresponde al caso en el cual los dos dobletes de Higgs tienen
+acoplamientos de Yukawa con todos los fermiones del Modelo Estándar.
+De ésta forma el doblete Higgs adicional da lugar a nueve
+acoplamientos tipo Yukawa en el Lagrangiano, mientras que el Higgs
+cargado singlete de SU(2) da lugar a tres parámetros adicionales. El
+potencial escalar contiene un acoplamiento entre el Higgs cargado
+singlete y los dos dobletes que viola explícitamente número leptónico
+y es la fuente para la generación de masas de Majorana de neutrinos a
+un loop. Recientemente, en colaboración con el Grupo de Valencia,
+hemos realizado los pasos 3 a 6, para una textura de la matriz de masa
+de neutrinos en la cual la primera entrada diagonal es diferente de
+cero, pero las otras dos son cero %\cite{AristizabalSierra:2006ri}. 
+La
+matriz de masa queda dependiendo de un parámetro global que se
+determina a partir de las masas y mezclas de los higgses cargados del
+modelo, y de siete acoplamientos tipo Yukawa del Lagrangiano. Esos
+siete acoplamientos también determinan los decaimientos leptónicos de
+los higgses cargados del modelo. En ese trabajo se considera la
+producción y el decaimiento de los dos higgses cargados y se
+establecen las correlaciones entre cocientes de branchings de
+decaimiento de esos higgses cargados a leptones con los ángulos de
+mezcla neutrinos. Se ha mostrado que para el caso en el cual el Higss
+cargado más pesado es principalmente singlete, la matriz de masa se
+puede reconstruir. Además se ha mostrado que la jerarquía de
+decaimientos del Higgs cargado más liviano a leptones, puede ser muy
+diferente a la de los modelos con dos dobletes de Higgs usuales.  En
+el modelo estudiado el decaimiento del Higgs cargado a muon neutrino
+puede dominar al decaimiento usual a tau neutrino.
+
+En el presente proyecto pretendemos realizar los pasos 3 a 6 para el
+caso general con todas las entradas de la matriz de masa de neutrinos
+diferente de cero. En esta parte contaremos con la ayuda del
+estudiante de doctorado de la Universidad de Antioquia Oscar Zapata, y
+de la asesoría del Grupo de Valencia, en especial del estudiante de
+doctorado de dicho Grupo Diego Aristizabal con quien hemos
+desarrollado el trabajo anteriormente mencionado. Inicialmente se
+realizará un estudio analítico similar al del trabajo anterior
+considerando los otros dos casos posibles con dos entradas diagonales
+iguales a cero, identificando las nuevas correlaciones entre
+decaimientos de higgses cargados y los ángulos de mezcla de neutrinos
+en esos casos. Esta parte requiere el uso del software Mathematica
+para establecer los resultados analíticos. Luego se realizará un
+análisis numérico de la matriz de masas de neutrino con todos las
+entradas diferentes de cero para confrontar el rango de validez de las
+correlaciones obtenidas. Cómo el espacio de parámetros es tan grande
+en este caso, se requiere el uso de técnicas de programación en
+paralelo que serán implementadas en el cluster del Grupo y el del
+Instituto de Física de la Universidad de Antioquia.
+
+Cómo los decaimientos leptónicos del Higgs neutro también están
+controlados por los mismos parámetros que inducen las masas y mezclas
+de neutrinos, se intentará establecer las posibles correlaciones entre
+los decaimientos del Higgs neutro y los ángulos de mezcla de
+neutrinos. Se solicita un computador para el estudiante de doctorado
+para los cálculos analíticos y numéricos relacionados con ésta parte
+del trabajo, as\'\i{} como la compra de una licencia de Mathematica para
+instalarse en ese computador.
+
+En el artículo internacional que se escriba al respecto se
+confrontarán numéricamente las correlaciones entre los decaimientos de
+partículas y la física de neutrinos más relevantes a través de
+gráficos que muestren como la dispersión de puntos del espacio de
+parámetros se acomodan a los resultados analíticos obtenidos. Además
+se hará énfasis en las diferencias de las predicciones del modelo con
+respecto a los modelos de dos dobletes de Higgs convencionales.
+
+En el modelo de Babu, de generación radiativa de masas de neutrinos a
+dos loops, los pasos 1 a 3 ya han sido realizado en la
+literatura %\cite{Babu:2002uu}.  
+Este modelo introduce un Higgs cargado
+y un Higgs doblemente cargado adicional al contenido de partículas del
+Modelo Estándar, los cuales son singletes de SU(2). El Higgs cargado
+adicional da lugar a 3 acoplamientos tipo Yukawa en el Lagrangiano,
+mientras que el Higgs doblemente cargado da lugar a seis parámetros
+más. Además el potencial escalar contiene un término que viola
+explícitamente número leptónico entre los nuevos higgses cargados y
+que es la fuente para la generación de masas de Majorana para los
+neutrinos a dos loops. En este proyecto pretendemos abordar los pasos
+4 a 6 para el decaimiento del Higss doblemente cargado que se
+introduce en dicho modelo. Un análisis preliminar parece mostrar que
+la matriz de masa de neutrinos se puede reconstruir completamente a
+partir de los observables asociados con el decaimiento de esa
+partícula. Es decir que los nueve parámetros del sector de Yukawa y el
+parámetro adicional con dimensiones de masa del término que viola
+número leptónico en el potencial escalar se podrían determinar a
+partir de los observables del modelo y sus correlaciones con la física
+de neutrinos. Además se predice una jerarquía muy específica del
+decaimiento del Higgs doblemente cargado a leptones cargados, lo que
+podría resultar en una predicción de una se nal inequívoca del modelo
+en aceleradores que tengan una producción suficiente para esta
+partícula. El principal atractivo de este modelo es que predice un
+valor del decaimiento muon a electrón fotón cercano a la cota
+experimental. Pretendemos establecer si el modelo puede llegar a
+excluirse debido a las mejoras esperadas para la cota sobre ese
+decaimiento en los próximos a nos. En esta parte también se contará con
+los dos estudiantes de doctorado Oscar Zapata y Diego Aristizabal.
+
+En el artículo internacional que se escriba al respecto se procederá
+de forma similar al del caso anterior. Se solicita una pasantía del
+estudiante de doctorado al Grupo de Valencia para seleccionar los
+resultados más importantes que aparecerán en ambos artículos.
+
+Los modelos 3-3-1, contienen los ingredientes para los mecanismos más
+comunes de generación de masas de neutrinos: el mecanismo see-saw,
+(masas de Dirac y Majorana a nivel árbol), y mecanismos de generación
+radiativa a uno y dos loops %\cite{Dong:2006vk}. 
+En este proyecto nos enfocaremos en
+versiones de modelos 3-3-1 donde, gracias a simetrías discretas
+apropiadas %\cite{Fanchiotti:2006jq}., 
+las masas de neutrinos sólo se generen a dos loops, y
+por consiguiente resulten naturalmente suprimidas respecto a las masas
+de los fermiones cargados del modelo. Para este caso abordaremos los
+pasos 1 a 6, con énfasis en los pasos iniciales, pues creemos que hay
+contribuciones que aún no se han considerado en la literatura. En
+modelos 3-3-1 con neutrinos derechos la matriz de neutrinos a baja
+energía resultante podría ser 6x6 si la escala de los neutrinos de
+Majorana es suficientemente peque na. En este caso es necesario
+reinterpretar los datos sobre física de neutrinos para los seis
+neutrinos ligeros resultantes, incluyendo los efectos de materia en el
+ángulo de mezcla solar.
+
+Para abordar la parte 1 es necesario establecer los acoplamientos
+relevantes del Lagrangiano que contribuirán a la generación de masas
+radiativas para los neutrinos, as\'\i{} como la identificación de los
+decaimientos de partículas nuevas que también estén controlados por
+esos parámetros. En este parte aprovecharemos la experiencia del
+profesores William Ponce y Luis Alberto Sánchez en este tipo de
+modelos, ver por ejemplo %\cite{Ponce:2002sg}.
+ Contaremos también con
+el apoyo del estudiante de Maestría de la Universidad de Antioquia
+Richard Hamilton a quien se le darán cursos electivos de la Maestría,
+sobre las técnicas necesarias para el cálculo de loops en Teorías
+Cuántica de Campos. Para ello se solicitan los libros detallados en la
+Bibliografía. También se solicita un computador para el profesor Luis
+Alberto Sánchez.
+
+En el artículo internacional inicial que se escriba al respecto se
+hará énfasis en la generalidad y los detalles relacionados con el
+cálculo de las masas radiativas de neutrinos, as\'\i{} como en la validez
+de la interpretación de las oscilaciones de neutrinos en términos de
+neutrinos tipo pseudodirac. Se solicita la visita del estudiante de
+doctorado Diego Aristizabal que pertenece al Grupo de Valencia para
+aprovechar su experiencia en el calculo de los loops que dan lugar a
+las masas de neutrinos en los modelos 3-3-1, as\'\i{} como su ayuda en el
+establecimiento de las correlaciones necesarias en el caso del Modelo
+de Zee, de Babu, y de los modelos 3-3-1.
+
+Para administrar el cluster del Grupo, mantener los servidores del
+Grupo que permitan una comunicación fluida con nuestros asesores
+internacionales y asesorar en las tareas de programación, se requiere
+un administrador de sistemas durante la duración del proyecto. As\'\i{}
+mismo y como se detalla en la bibliografía se solicitan libros de
+programación en Fortran y Fortran 90, que nos sirvan como referencia
+en la implementación de los programas numéricos.
+
+
+Todos estos decaimientos están implementadas en una versión que aún no
+es pública del programa SPHENO %\cite{hep-ph/0301101}, 
+llamada
+SPhenoRP, y de la cual disponemos gracias a su autor, y colaborador de
+éste proyecto, Werner Porod. En este proyecto queremos abordar la
+parte 7 del análisis para el decaimiento del neutralino, en
+colaboración con los Grupos del profesor Jose Valle en Valencia, al
+que pertence el Dr Werner Porod y del Grupo de Oscar Eboli en Brasil.
+En el modelo con VBPR se predice que el cociente entre el branching
+del neutralino decayendo a $qq'\mu$ con el del neutralino decayendo a
+$qq'\tau$ debe ser aproximadamente la tangente al cuadrado del ángulo de
+mezcla atmosférico. Dicha relación se sigue manteniendo
+aproximadamente si el par de quarks provienen del $W$. De
+esta manera, una desviación significativa de 1 para el cociente entre
+los branchings del neutralino decayendo a $W\mu$ y $W\tau$, podría
+excluir al modelo con VBPR como el único responsable de la generación
+de masas y mezclas para los neutrinos.
+
+Se calcularán los decaimientos del neutralino, usando el programa
+SPhenoRP para un punto en el espacio de parámetros supersimétrico
+representativo %\cite{Aguilar-Saavedra:2005pw} 
+donde el neutralino es
+la partícula supersimétrica más liviana. Se usará la salida del
+programa en formato SLHA %\cite{hep-ph/0407067} 
+con la información
+sobre el espectro y los branchings supersimétricos, como archivo de
+entrada de un programa que usa PYTHIA %\cite{hep-ph/0010017} 
+para
+simular el evento en el detector ATLAS del LHC. Cuando se genera un
+evento con este programa las partículas supersimétricas
+producidas sufren decaimientos en cadena hasta decaer a dos
+neutralinos y a partículas del Modelo Estándar. Estos neutralinos
+a su vez decaen a partículas del modelo estándar.  En el programa
+se debe entonces introducir una serie de cortes para comprobar si el
+evento contribuye al numero de eventos de neutralinos decayendo a
+$W\mu$, $N_\mu$, o a $N_\tau$. Se generan nuevos eventos aleatorios hasta
+alcanzar una estadística similar a la esperada en el LHC, es
+decir de millones de neutralinos producidos al alcanzar luminosidad de
+100/fb.  Se espera que $N_\mu$ y $N_\tau$ sean del orden de miles para que
+el error en la medida de $N_\mu/N_\tau$ sea suficientemente peque no. Esto
+podría garantizar que dicho cociente puede ser medido con
+suficiente significancia en el LHC. Con el siguiente conjunto de
+cortes, que explota el hecho de que el neutralino decae exhibiendo
+vértices desplazados %\cite{hep-ph/0501153},
+ esperamos garantizar que
+los números de eventos a $W\mu$ y a $W\mu$ sean suficientemente grandes.
+Se propone que un evento contribuye a $N_\mu$ o $N_\tau$ s\'\i:
+\begin{itemize}
+\item el neutralino decae dentro de la región de aceptancia del
+  detector y exhibe un vertice desplazado a una distancia
+  suficientemente alejada del centro de interacción;
+\item Al menos uno de los neutralinos decae a un $W$ acompa nado de un
+  muon o un tau;
+\item El $W$ decae a un par q-q'
+\item Si esta acompa nado por un tau que a su vez decae a través del
+  canal a 1-prong.
+\item Los quarks provenientes de W, as\'\i{} como el muon o el tau deben
+  impactar suficientes detectores de traza de modo que el vértice
+  desplazado en efecto pueda reconstruirse
+\item Para reducir el background debido a vértices desplazados
+  provenientes de partículas del Modelo Estándar se debe exigir que la
+  masa invariante de las trazas que convergen al vértice desplazado
+  sea suficientemente grande
+\end{itemize}
+Una vez obtenido el número de eventos a $W$ muon, $N_\mu$, y el numero
+de eventos a $W$ tau, $N_\tau$, se estimará el error en el cociente
+$N_\mu/N_\tau$ a partir de la raíz cuadrada de la suma de los inversos de
+los números de eventos. Si este error resulta ser suficientemente
+peque no como para que $N_\mu/N_\tau$ se pueda establecer con suficiente
+significancia que es diferente de cero, se podría establecer que dicho
+observable puede llegar a ser medible en el LHC.
+
+En el artículo internacional que se escribirá al respecto, se
+mostrarán gráficos que ilustren el efecto de los cortes más
+relevantes, y se hará énfasis en las ventajas que puede traer la
+reconstrucción completa del neutralino en la determinación del
+espectro completo supersimétricos. Algo que sólo se puede hacer en
+casos muy específicos en el Modelo Estándar Mínimo Supersimétrico
+(con conservación de paridad R)
+
+Para el refinamiento y cuantificación de los cortes propuestos se
+solicita una visita del investigador principal al Grupo de Valencia
+donde se puede contar con la asesoría de miembros de la colaboración
+ATLAS del LHC.  Para la implementación de los cortes en el programa se
+solicita la visita del Profesor Oscar Eboli de Brasil a al Universidad
+de Antioquia.
+
+De otro lado, la generación de millones de eventos requiere el uso de
+técnicas de programación en paralelo que serán implementadas en los
+cluster del Grupo y del Instituto de Física de la Universidad de
+Antioquia
+
+Se solicita una viaje del investigador principal para presentar los
+resultados en la conferencia SUSY 2007, la cual será muy importante
+pues coincidirá con el inicio de operaciones del LHC previsto para ese
+a no.
+
+Para el modelo de Zee de generación radiativa de masas de neutrinos a
+un loop, los pasos 1,2 ya han sido realizados en la literatura
+%\cite{Balaji:2001ex}. 
+Este modelo contiene un doblete de Higgs
+adicional al del Modelo Estándar, y un Higgs cargado singlete de
+SU(2). La versión que es consistente con física de neutrinos
+corresponde al caso en el cual los dos dobletes de Higgs tienen
+acoplamientos de Yukawa con todos los fermiones del Modelo Estándar.
+De ésta forma el doblete Higgs adicional da lugar a nueve
+acoplamientos tipo Yukawa en el Lagrangiano, mientras que el Higgs
+cargado singlete de SU(2) da lugar a tres parámetros adicionales. El
+potencial escalar contiene un acoplamiento entre el Higgs cargado
+singlete y los dos dobletes que viola explícitamente número leptónico
+y es la fuente para la generación de masas de Majorana de neutrinos a
+un loop. Recientemente, en colaboración con el Grupo de Valencia,
+hemos realizado los pasos 3 a 6, para una textura de la matriz de masa
+de neutrinos en la cual la primera entrada diagonal es diferente de
+cero, pero las otras dos son cero %\cite{AristizabalSierra:2006ri}. 
+La
+matriz de masa queda dependiendo de un parámetro global que se
+determina a partir de las masas y mezclas de los higges cargados del
+modelo, y de siete acoplamientos tipo Yukawa del Lagrangiano. Esos
+siete acoplamientos también determinan los decaimientos leptónicos de
+los higgses cargados del modelo. En ese trabajo se considera la
+producción y el decaimiento de los dos higgses cargados y se
+establecen las correlaciones entre cocientes de branchings de
+decaimiento de esos higgses cargados a leptones con los ángulos de
+mezcla neutrinos. Se ha mostrado que para el caso en el cual el Higss
+cargado más pesado es principalmente singlete, la matriz de masa se
+puede reconstruir. Además se ha mostrado que la jerarquía de
+decaimientos del Higgs cargado más liviano a leptones, puede ser muy
+diferente a la de los modelos con dos dobletes de Higgs usuales.  En
+el modelo estudiado el decaimiento a muon neutrino puede dominar al
+decaimiento usual a tau neutrino.
+
+
+En el presente proyecto pretendemos realizar los pasos 3 a 6 para el
+caso general con todas las entradas de la matriz de masa de neutrinos
+diferente de cero. En esta parte contaremos con la ayuda del
+estudiante de doctorado de la Universidad de Antioquia Oscar Zapata, y
+de la asesoría del Grupo de Valencia, en especial del estudiante de
+doctorado de dicho Grupo Diego Aristizabal con quien hemos
+desarrollado el trabajo anteriormente mencionado.  Inicialmente se
+realizará un estudio analítico similar al del trabajo anterior
+considerando los otros dos casos posibles con dos entradas diagonales
+iguales a cero, identificando las nuevas correlaciones entre
+decaimientos de higgses cargados y los ángulos de mezcla de neutrinos
+en esos casos. Esta parte requiere el uso del software Mathematica
+para establecer los resultados analíticos.  Luego se realizará un
+análisis numérico de la matriz de masas de neutrino con todos las
+entradas diferentes de cero para confrontar el rango de validez de las
+correlaciones obtenidas. Cómo el espacio de parámetros es tan grande
+en este caso, se requiere el uso de técnicas de programación en
+paralelo que serán implementadas en el cluster del Grupo y del
+Instituto de Física de la Universidad de Antioquia.
+
+Cómo los decaimientos leptónicos del Higgs neutro también están
+controlados por los mismos parámetros que inducen las masas y mezclas
+de neutrinos, se intentará establecer las posibles correlaciones entre
+los decaimientos del Higss neutro y los ángulos de mezcla de
+neutrinos. Se solicita un computador para el estudiante de doctorado
+para los cálculos análiticos y numéricos relacionados con ésta parte
+del trabajo, as\'\i{} como la compra de una licencia de Mathematica para
+instalarse en ese computador.
+
+En el artículo internacional que se escriba al respecto se
+confrontarán numéricamente las correlaciones entre los decaimientos de
+partículas y la física de neutrinos más relevantes a través de
+gráficos que muestren como la dispersión de puntos del espacio de
+parámetros se acomodan a los resultados analíticos obtenidos. Además
+se hará énfasis en las diferencias de las predicciones del modelo con
+respecto a los modelos de dos dobletes de Higgs convencionales. 
+
+
+En el modelo de Babu, de generación radiativa de masas de neutrinos a
+dos loops, los pasos 1 a 3 ya han sido realizado en la literatura
+%\cite{Babu:2002uu}. 
+Este modelo introduce un Higgs cargado y un Higgs
+doblemente cargado adicional al contenido de partículas del
+Modelo Estándar, los cuales son singletes de SU(2). El Higgs cargado
+adicional da lugar a 3 acoplamientos tipo Yukawa en el Lagrangiano,
+mientras que el Higgs doblemente cargado da lugar a seis parámetros
+más.  Además el potencial escalar contiene un término que viola
+explícitamente número leptónico entre los nuevos higgses cargados
+y que es la fuente para la generación de masas de Majorana para los
+neutrinos a dos loops.  En este proyecto pretendemos abordar los pasos
+4 a 6 para el decaimiento del Higss doblemente cargado que se
+introduce en dicho modelo. Un análisis preliminar parece mostrar que
+la matriz de masa de neutrinos se puede reconstruir completamente a
+partir de los observables asociados con el decaimiento de esa
+partícula. Es decir que los nueve parámetros del sector de Yukawa
+y el parámetro adicional con dimensiones de masa del término que viola
+número leptónico en el potencial escalar se podrían determinar a
+partir de los observables del modelo y sus correlaciones con la
+física de neutrinos. Además se predice una jerarquía muy
+específica del decaimiento del Higgs doblemente cargado a
+leptones cargados, lo que podría resultar en una predicción de
+una se nal inequívoca del modelo en aceleradores que tengan una
+producción suficiente para esta partícula. El principal atractivo
+de este modelo es que predice un valor del decaimiento electrón a muon
+gamma cercano a la cota experimental. Pretendemos establecer si el
+modelo puede llegar a excluirse debido a las mejoras esperadas para la
+cota sobre ese decaimiento en los próximos a nos. En esta parte también
+se contará con los dos estudiantes de doctorado Oscar Zapata y Diego
+Aristizabal.
+
+En el artículo internacional que se escriba al respecto se procederá
+de forma similar al del caso anterior. Se solicita una pasantía del
+estudiante de doctorado al Grupo de Valencia para seleccionar los
+resultados más importantes que aparecerán en ambos artículos.
+
+
+Los modelos 3-3-1, contienen los ingredientes para los mecanismos más
+comunes de generación de masas de neutrinos: el mecanismo see-saw,
+(masas de Dirac y Majorana a nivel árbol), y mecanismos de generación
+radiativa a uno y dos loops %\cite{Dong:2006vk}. 
+En este proyecto nos
+enfocaremos en versiones de modelos 3-3-1 donde, gracias a simetrías
+discretas apropiadas %\cite{Fanchiotti:2006jq}, 
+las masas de neutrinos
+sólo se generen a dos loops, y por consiguiente resulten naturalmente
+suprimidas respecto a las masas de los fermiones cargados del modelo.
+Para este caso abordaremos los pasos 1 a 6, con énfasis en los pasos
+iniciales, pues creemos que hay contribuciones que aún no se han
+considerado en la literatura. En modelos 3-3-1 con neutrinos derechos
+la matriz de neutrinos a baja energía resultante podría ser 6x6 si la
+escala de los neutrinos de Majorana es suficientemente peque na. En
+este caso es necesario reinterpretar los datos sobre física de
+neutrinos para los seis neutrinos ligeros resultantes, incluyendo los
+efectos de materia en el ángulo de mezcla solar. 
+
+Para abordar la parte 1 es necesario establecer los acoplamientos
+relevantes del Lagrangiano que contribuirán al generación de masas
+radiativas para los neutrinos, as\'\i{} como la identificación de los
+decaimientos de partículas nuevas que también estén controlados
+por esos parámetros. En este parte aprovecharemos la experiencia del
+profesores William Ponce y Luis Alberto Sánchez en este tipo de
+modelos, ver por ejemplo %\cite{Ponce:2002sg}.
+Contaremos también con
+el apoyo del estudiante de Maestría de la Universidad de
+Antioquia Richard Hamilton a quien se le darán cursos electivos de la
+Maestría, sobre las técnicas necesarias para el cálculo de loops
+en Teorías Cuántica de Campos.  Para ello se solicitan los libros
+detallados en la Bibliografía.  También se solicita un computador
+para el profesor Luis Alberto Sánchez
+
+
+En el artículo internacional inicial que se escriba al respecto se
+hará énfasis en la generalidad y los detalles relacionados con el
+cálculo de las masas radiativas de neutrinos, as\'\i{} como en la validez
+de la interpretación de las oscilaciones de neutrinos en términos de
+neutrinos tipo pseudodirac.
+
+
+Se solicita la visita del estudiante de doctorado Diego Aristizabal
+que pertenece al Grupo de Valencia para aprovechar su experiencia en
+el calculo de los loops que dan lugar a las masas de neutrinos en los
+modelos 3-3-1, as\'\i{} como su ayuda en el establecimiento de las
+correlaciones necesarias en el caso del Modelo de Zee, de Babu, y de
+los modelos 3-3-1.
+
+
+
+Para administrar el cluster del Grupo, mantener los servidores del
+Grupo que permitan una comunicación fluida con nuestros asesores
+internacionales y asesorar en las tareas de programación se requiere
+un administrador de sistemas durante la duración del proyecto.
+
+As\'\i{} mismo y como se detalla en la bibliografía se solicitan libros de
+programación en Fortran y Fortran 90, que nos sirvan como referencia
+en la implementación de los programas numéricos.
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 
