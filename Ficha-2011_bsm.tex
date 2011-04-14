@@ -36,6 +36,24 @@
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
+%%new comments enviorement
+\usepackage{comment}
+\includecomment{instrucciones}
+\specialcomment{instrucciones}
+{\begingroup\itshape }{ \medskip \endgroup}
+\excludecomment{instrucciones}
+
+\includecomment{ideas}
+\specialcomment{ideas}
+{\begingroup}{ \medskip \endgroup}
+\excludecomment{ideas}
+
+\includecomment{evaluacion}
+\specialcomment{evaluacion}
+{\begingroup}{ \medskip \endgroup}
+\excludecomment{evaluacion}
+
+
 \begin{document}
 
 \vglue -2cm
@@ -174,7 +192,18 @@ La ficha técnica es el resumen del proyecto, con una extensión máxima de seis
 % % \pagenumbering{arabic}
 
 % % \small
+\begin{instrucciones}
+  Del investigador para ser asociado:
+  \begin{itemize}
+  \item  Haber estado vinculado al grupo de investigación durante el último año. El Coordinador del grupo debe certificar las actividades investigativas en las que se ha participado.
 
+  \item La vinculación del investigador asociado al grupo no puede exceder los tres años.
+
+  \item Ser un investigador joven que represente un claro prospecto para la generación de relevo profesoral. Edad máxima: 35 años.
+
+  \item No poseer la calidad de profesor o estudiante (de la Universidad de Antioquia). Se exceptúan de esta última condición los profesores de cátedra.
+  \end{itemize}
+\end{instrucciones}
 
 
 \include{Planteamiento_del_Problema}
@@ -199,7 +228,9 @@ La ficha técnica es el resumen del proyecto, con una extensión máxima de seis
 
 
 \section{ Presupuesto}
-
+\begin{instrucciones}
+  ¿Los rubros son pertinentes? ¿Los montos son los adecuados para cumplir los objetivos del proyecto? ¿El número de investigadores y el tiempo de dedicación son adecuados?
+\end{instrucciones}
 Ver documento adjunto
 
 %\newpage
