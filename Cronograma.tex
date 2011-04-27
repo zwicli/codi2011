@@ -28,7 +28,7 @@
   $\tilde\chi_1^0\to W^\pm\tau^\mp$, cuando el $W^\pm$ decae
   hadrónicamente. En dicho código, es necesario reconstruir la masa
   invariante del $W^\pm$ a partir de los jets a los que se desintegra
-  y usar cortes específicos de ailamiento de leptones para seleccionar
+  y usar cortes específicos de aislamiento de leptones para seleccionar
   los $\mu$ y $\tau$ asociados a cada decaimiento del neutralino. En
   ésta fase se modificará el programa para establecer el nivel de
   precisión con la que se puede medir la correlación entre la longitud
@@ -37,15 +37,15 @@
   decaimiento $L_0$ del neutralino y su error $\Delta L_0$, donde
   $L_0$ está dada por
   \begin{align}
-    L_0=\frac{L^{\text{lab}}}{p_{\tilde\chi_1^0}^{\text{reco}}}m_{\tilde\chi_1^0}^{inv}
+    L_0=\frac{L^{\text{lab}}}{p_{\tilde\chi_1^0}^{\text{reco}}}m_{\tilde\chi_1^0}^{\text{inv}}
   \end{align}
-  con $L^{\text{lab}}$ es la distancia desde el punto de interacción
+  con $L^{\text{lab}}$ la distancia desde el punto de interacción
   hasta el punto en el espacio donde decae el neutralino, $p$ y $m$
   son el cuadri-momentum y la masa invariante del neutralino. Para la
   determinación de $\Delta L_0$ debemos hacer un programa que ajuste
   las distribuciones gaussianas del cocientes
   $\frac{L^{\text{lab}}}{p_{\tilde\chi_1^0}^{\text{reco}}}$ y de la
-  masa invariante $m_{\tilde\chi_1^0}^{inv}$. Similarmente, para
+  masa invariante $m_{\tilde\chi_1^0}^{\text{inv}}$. Similarmente, para
   calcular el nivel de precisión con el que se puede llegar a medir la
   correlación entre el ángulo de mezcla solar con los decaimientos a
   tres cuerpos mediados por sfermiones con muones y electrones en los
@@ -78,7 +78,7 @@
   prohibidos los otros términos de ruptura de paridad R. De acuerdo a
   exploraciones iniciales esperamos que en este caso la LSP deba ser
   un gravitino si se quiere mantener un candidato a materia oscura
-  inestable. Para explorar las restricciones que los datos de
+  inestable. Para explorar las restricciones de los datos de
   detección indirecta, se establecerá el background de rayos cósmicos,
   asumiendo que las anomalías actuales se pueden explicar a partir de
   fenómenos astrofísicos. Se hará una programa de simulación en
@@ -98,18 +98,18 @@
 \begin{darkmatter}
 \begin{proyecto}
   Para el seesaw radiativo, escribiremos el Lagrangiano del modelo el
-  lenguaje de programación LanHEP~\cite{Semenov:2008jy}. Con este programa
-  podremos generar las cuatro tablas en el formato de
-  CalcHEP~\cite{Pukhov:2004ca}, con lo cual podremos usar calcular
-  las secciones eficaces y las amplitudes de decaimiento del modelo, y
-  como MicrOMEGAS usas internamente CalcHEP, calcular también la
-  densidad de reliquia y la sección eficaz WIMP-nucleón. Debemos crear
-  también una interfase en Python para hacer los llamados a los
-  diferentes cálculos y para implementar las regiones del espacio de
-  parámetros que son compatibles con los datos de oscilaciones de
-  neutrinos. Paralelamente debemos hacer cálculos analíticos de las
-  secciones eficaces promediadas térmicamente para estar seguros que
-  los resultados de MicroMEGAS son correctos.
+  lenguaje de programación LanHEP~\cite{Semenov:2008jy}. Con este
+  programa podremos generar las cuatro tablas en el formato de
+  CalcHEP~\cite{Pukhov:2004ca}, el cual podemos usar para calcular las
+  secciones eficaces y las amplitudes de decaimiento del modelo.  Como
+  MicrOMEGAS usa internamente CalcHEP, también podremos calcular la
+  densidad de reliquia y la sección eficaz WIMP-nucleón del
+  modelo. Debemos crear también una interfase en Python para hacer los
+  llamados a los diferentes cálculos y para implementar las regiones
+  del espacio de parámetros que son compatibles con los datos de
+  oscilaciones de neutrinos. Paralelamente debemos hacer cálculos
+  analíticos de las secciones eficaces promediadas térmicamente para
+  estar seguros que los resultados de MicroMEGAS son correctos.
 \end{proyecto}
 \end{darkmatter}
 
@@ -117,7 +117,9 @@
 \item \textbf{meses 12-18} En esta parte se obtendrán y analizarán los
   resultados numéricos de los modelos bajo consideración. El
   estudiante de doctorado realizará su pasantía doctoral en un Grupo
-  de Investigación europeo.
+  de Investigación europeo. En está parte evaluaremos que resultados
+  presentar en éste proyecto, e iniciaremos la redacción de la
+  continuación del proyecto para presentar ante COLCIENCIAS. 
 
 \item \textbf{meses 18-24} En esta parte se prepararán los artículos
   para publicación con base en los resultados obtenidos. Uno sobre el
@@ -125,7 +127,7 @@
   del modelo de ruptura bilinea de paridad R en el LHC, y otra sobre
   la formulación de un modelo consistente de ruptura trilineal de
   paridad $R$ con términos $\lambda$, con el gravitino como materia
-  oscura inestable y con el mecanismo seesaw para generar masas de
+  oscura inestable o con el mecanismo seesaw para generar masas de
   neutrinos. .
 
   Se escribirá el artículo de divulgación sobre resultados recientes
