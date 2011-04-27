@@ -38,8 +38,8 @@ paridad R y ejemplificando cada paso con referencias concretas.
 \item Se desarrolla un programa computacional que dado los parámetros
   de entrada del modelo entregue las secciones eficaces y los
   branching de decaimiento en un formato adecuado (el SLHA
-  \cite{0801.0045}) para ser usado luego por programas de Montecarlo
-  de generación de eventos como PYTHIA \cite{hep-ph/0603175}. El
+  \cite{Allanach:2008qq}) para ser usado luego por programas de Montecarlo
+  de generación de eventos como PYTHIA \cite{Sjostrand:2006za}. El
   modelo con ruptura bilineal de paridad R ha sido implementado en el
   programa computacional Spheno~\cite{Porod:2003um} (el cual tiene
   implementado el formato de salida SLHA version 2).
@@ -48,7 +48,7 @@ paridad R y ejemplificando cada paso con referencias concretas.
   \ref{item:6} en una malla n-dimensional. Para cada punto se corre el
   programa computacional desarrollado en el paso \ref{item:7} y los
   correspondiente datos de salida se pasan a PYTHIA usando la
-  interfase SLHA. Con PYTHIA en cada punto se realiza una simulación
+  interfase SLHA. En cada punto se realiza con PYTHIA una simulación
   que consiste en generar aleatoriamente eventos de acuerdo a la
   geometría y características de detectores específicos, para
   determinar la factibilidad de descubrir las señales en aceleradores
@@ -64,8 +64,8 @@ paridad R y ejemplificando cada paso con referencias concretas.
   en aceleradores que se puedan correlacionar con observables de otros
   experimentos. A partir del valor experimental del ángulo de mezcla
   atmosférico, en el modelo con ruptura bilineal de paridad R por
-  ejemplo, se predice que el decaimiento del neutralino a muon debe
-  ser muy similar al decaimiento del neutralino a tau. En
+  ejemplo, se predice que el decaimiento del neutralino a muon W, debe
+  ser muy similar al decaimiento del neutralino a tau W. En
   \cite{DeCampos:2010yu} hemos determinado el nivel de precisión con
   el que se pude medir esta correlación en el detector ATLAS del LHC.
   \label{item:9}
@@ -74,12 +74,16 @@ Las simulaciones se realizan con el fin de desarrollar todas las
 herramientas necesarias para que los grupos experimentales de los
 aceleradores puedan comparar los datos obtenidos con modelos
 específicos y puedan descubrir o poner cotas sobre las nuevas
-partículas propuestas, o en el caso de detección directa o indirecta
-de materia oscura donde las señales están preestablecidas, para poder
-comparar con los datos obtenidos o que se pueden obtener. En el caso
-del modelo con ruptura bilineal de paridad R, ya se han hecho
-búsquedas en Tevatron~\cite{0802.3887} y se están implementando 
-búsquedas en el LHC en grupos de trabajo de ATLAS y LHCb.
+partículas propuestas. En el caso de detección directa o indirecta de
+materia oscura donde las señales están preestablecidas, la
+simulaciones se realizan para poder comparar con los datos obtenidos o
+que se pueden llegar a obtener. En el caso del modelo con ruptura
+bilineal de paridad R, ya se han hecho búsquedas en
+Tevatron~\cite{Brigliadori:2008vf} y se están implementando búsquedas en el LHC
+en grupos de trabajo de ATLAS y LHCb. Además se han establecido la
+posibles señales que se pueden observar en experimentos de detección
+indirecta de materia oscura a través de rayos cósmicos
+\cite{Choi:2010jt}.
 
 \begin{proyecto}
   En el marco de este proyecto se simularán dos correlaciones
@@ -92,29 +96,28 @@ búsquedas en el LHC en grupos de trabajo de ATLAS y LHCb.
 \end{proyecto}
 
 \begin{proyecto}
-  En un proyecto de menor cuantía presentado por el investigador
-  asociado al Grupo, Oscar Zapata, se realizará el paso \ref{item:6}
-  de determinar las regiones del espacio de parámetros donde el modelo
-  con ruptura bilineal de paridad R puede explicar tanto las masas de
-  neutrinos como la densidad de reliquia de materia oscura cuando la
-  LSP es el gravitino. Para las regiones establecidas, en este proyecto realizaremos los pasos \ref{item:7} y \ref{item:8}.
+  En el modelo donde la ruptura bilineal de paridad R puede explicar
+  tanto las masas de neutrinos como la densidad de reliquia de materia
+  oscura cuando la LSP es el gravitino se realizaran los pasos
+  \ref{item:7} y \ref{item:8} de la metodología.
 \end{proyecto}
 
-
-\begin{proyecto}
+\begin{darkmatter}
+  \begin{proyecto}
   Para el seesaw radiativo, en la literatura básicamente sólo se ha
   realizado el paso \ref{item:5}, aunque para algunas regiones del
   espacio de parámetros donde la partícula más liviana de paridad
   impar (LOP de sus siglas en inglés) es escalar se ha llegado hasta
-  el paso \ref{item:8}~\cite{0708.2839}. En este proyecto haremos un
+  el paso \ref{item:8}~\cite{Bergman:2007pm}. En este proyecto haremos un
   estudio sistemático del modelo incluyendo todos los pasos de la
   metodología. Cómo el modelo está basado en una simetría $Z_2$,
-  implementaremos el modelo en MicrOMEGAS~\cite{1004.1092} donde
+  implementaremos el modelo en MicrOMEGAS~\cite{Belanger:2010gh} donde
   además de calcular la densidad de reliquia, y la sección eficaz
   WIMP-nucleon, se pueden obtener todas las secciones eficaces y
   amplitudes de decaimiento con el formato SLHA, lo que facilitará las
   simulaciones para el LHC.
 \end{proyecto}
+\end{darkmatter}
 
 \begin{proyecto}
   Para el modelo con con ruptura de paridad R a través de términos
@@ -127,26 +130,23 @@ búsquedas en el LHC en grupos de trabajo de ATLAS y LHCb.
 \end{proyecto}
 
 A través de todo el proyecto se requiere de una infraestructura de
-computación de alto rendimiento adecuada que garantice una
+computación de alto rendimiento adecuada, que garantice una
 disponibilidad permanente de poder de computo para las diferentes
 simulaciones y programas computacionales que requiere el proyecto. El
 grupo ha venido consolidando sus herramientas de computación con la
-adquisición de un servidor blade con capacidad para 8 nodos, aunque de
+adquisición de un servidor Blade con capacidad para 8 nodos, aunque de
 momento sólo tiene un nodo instalado. Toda esta experiencia le ha
-permitido consolidar un grupo establecer un grupo de desarrolladores y
-administradores de software científico que ahora conforman La división
-de Ciencias de la computación del grupo la cual es la encargada de
-administrar el Centro Regional de Simulación y Cálculo Avanzado
-CRESCA.  Una de las metas prioritarias es la unificar el poder de
-computo de los Grupos de Investigación de la Universidad en un Grid
-Institucional que la vez éste conectado con Grid-Colombia. En el
-proyecto solicitamos la renovación del contrato de Administrador de
-Sistemas Omar Zapata, que dedicaría parte de su tiempo para la
-administración de CRESCA y la implementación del Grid Institucional de
-computación de alto rendimiento.
-
-
-
+permitido consolidar un grupo de desarrolladores y administradores de
+software científico que ahora conforman La división de ciencias de la
+computación del grupo la cual es ahora la encargada de administrar el
+Centro Regional de Simulación y Cálculo Avanzado (CRESCA).  Una de las
+metas prioritarias es la unificar el poder de computo de los Grupos de
+Investigación de la Universidad en un Grid Institucional que la vez
+éste conectado con Grid-Colombia. En el proyecto solicitamos la
+renovación del contrato al Administrador de Sistemas, que dedicaría
+parte de su tiempo para la administración de CRESCA y la
+implementación del Grid Institucional de computación de alto
+rendimiento.
 
 \begin{ideas}
   
