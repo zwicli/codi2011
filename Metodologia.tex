@@ -1,5 +1,164 @@
-\section{ Metodología Propuesta }
+\section{Metodología Propuesta}
+\begin{instrucciones}
+  Esta debe reflejar la estructura lógica y el rigor científico del
+  proceso de investigación, empezando por la elección de un enfoque
+  metodológico específico y finalizando con la forma como se van a
+  analizar, interpretar y presentar los resultados.
+\end{instrucciones}
+%%%
 
+%Final
+A lo largo de nuestra experiencia con el modelo con violación de
+paridad R, hemos logrado implementar todos los pasos de la metodología
+usada en física de partículas para estudiar modelos de física más allá
+del modelo estándar.  Ésta parte desde la formulación misma del modelo
+hasta su estudio real en los aceleradores de partículas por parte de
+los grupos experimentales. Esta metodología también la hemos logrado
+aplicar con éxito a otros modelos. A continuación se muestran los
+pasos a seguir usando como paradigma el modelo con ruptura bilineal de
+paridad R y ejemplificando cada paso con referencias concretas.
+\begin{enumerate}
+\item Se construye un modelo que solucione un problema fenomenológico
+  del modelo estándar, como el problema de las masas de neutrinos
+  \cite{Hirsch:2000ef}, o la materia oscura (o ambos
+  \cite{Hirsch:2005ag}), mostrando bajo que mecanismo específico se
+  soluciona el problema en cuestión. La solución del problema requiere
+  introducir partículas adicionales las cuales pueden buscarse en
+  detectores de partículas.
+  \label{item:5}
+\item Se determina el espacio de parámetros compatible con los datos
+  experimentales, se calculan los branchings de decaimiento y las
+  secciones eficaces y se establecen correlaciones entre estos
+  observables en aceleradores con otros observables. En el caso de
+  modelos con mecanismos de generación radiativa de masas de neutrinos
+  las correlaciones se buscan con los datos de oscilaciones de
+  neutrinos \cite{Diaz:2003as}, y en el caso de materia oscura con
+  experimentos de detección directa e indirecta \cite{Choi:2010xn}.
+  \label{item:6}
+\item Se desarrolla un programa computacional que dado los parámetros
+  de entrada del modelo entregue las secciones eficaces y los
+  branching de decaimiento en un formato adecuado (el SLHA
+  \cite{Allanach:2008qq}) para ser usado luego por programas de Montecarlo
+  de generación de eventos como PYTHIA \cite{Sjostrand:2006za}. El
+  modelo con ruptura bilineal de paridad R ha sido implementado en el
+  programa computacional Spheno~\cite{Porod:2003um} (el cual tiene
+  implementado el formato de salida SLHA version 2).
+  \label{item:7}
+\item Se divide el espacio de n-parámetros establecido en el paso
+  \ref{item:6} en una malla n-dimensional. Para cada punto se corre el
+  programa computacional desarrollado en el paso \ref{item:7} y los
+  correspondiente datos de salida se pasan a PYTHIA usando la
+  interfase SLHA. En cada punto se realiza con PYTHIA una simulación
+  que consiste en generar aleatoriamente eventos de acuerdo a la
+  geometría y características de detectores específicos, para
+  determinar la factibilidad de descubrir las señales en aceleradores
+  \cite{Magro:2003zb,deCampos:2005ri,deCampos:2007bn,deCampos:2008ic,deCampos:2008re},
+  o en experimentos de detección directa o indirecta
+  \cite{Choi:2010xn} de materia oscura. Este paso requiere de
+  herramientas de computación de alto rendimiento en clusters de
+  computadores.
+  \label{item:8}
+\item Como modelos muy diferentes pueden dar lugar a las mismas
+  señales en detectores, se debe hacer también simulaciones en PYTHIA
+  del nivel de precisión con el que se pueden determinar observables
+  en aceleradores que se puedan correlacionar con observables de otros
+  experimentos. A partir del valor experimental del ángulo de mezcla
+  atmosférico, en el modelo con ruptura bilineal de paridad R por
+  ejemplo, se predice que el decaimiento del neutralino a muon W, debe
+  ser muy similar al decaimiento del neutralino a tau W. En
+  \cite{DeCampos:2010yu} hemos determinado el nivel de precisión con
+  el que se pude medir esta correlación en el detector ATLAS del LHC.
+  \label{item:9}
+\end{enumerate}
+Las simulaciones se realizan con el fin de desarrollar todas las
+herramientas necesarias para que los grupos experimentales de los
+aceleradores puedan comparar los datos obtenidos con modelos
+específicos y puedan descubrir o poner cotas sobre las nuevas
+partículas propuestas. En el caso de detección directa o indirecta de
+materia oscura donde las señales están preestablecidas, la
+simulaciones se realizan para poder comparar con los datos obtenidos o
+que se pueden llegar a obtener. En el caso del modelo con ruptura
+bilineal de paridad R, ya se han hecho búsquedas en
+Tevatron~\cite{Brigliadori:2008vf} y se están implementando búsquedas en el LHC
+en grupos de trabajo de ATLAS y LHCb. Además se han establecido la
+posibles señales que se pueden observar en experimentos de detección
+indirecta de materia oscura a través de rayos cósmicos
+\cite{Choi:2010jt}.
+
+\begin{proyecto}
+  En el marco de este proyecto se simularán dos correlaciones
+  adicionales que existen el modelo con ruptura bilineal de paridad R:
+  Cuando el neutralino es la LSP, los decaimientos a tres cuerpos
+  mediados por sfermiones con muones y electrones en los estados
+  finales, están correlaciones con el ángulo de mezcla solar, y la
+  longitud de decaimiento del neutralino está correlacionada con la
+  diferencia de masa atmosférica.
+\end{proyecto}
+
+\begin{proyecto}
+  En el modelo donde la ruptura bilineal de paridad R puede explicar
+  tanto las masas de neutrinos como la densidad de reliquia de materia
+  oscura cuando la LSP es el gravitino se realizaran los pasos
+  \ref{item:7} y \ref{item:8} de la metodología.
+\end{proyecto}
+
+\begin{darkmatter}
+  \begin{proyecto}
+  Para el seesaw radiativo, en la literatura básicamente sólo se ha
+  realizado el paso \ref{item:5}, aunque para algunas regiones del
+  espacio de parámetros donde la partícula más liviana de paridad
+  impar (LOP de sus siglas en inglés) es escalar se ha llegado hasta
+  el paso \ref{item:8}~\cite{Bergman:2007pm}. En este proyecto haremos un
+  estudio sistemático del modelo incluyendo todos los pasos de la
+  metodología. Cómo el modelo está basado en una simetría $Z_2$,
+  implementaremos el modelo en MicrOMEGAS~\cite{Belanger:2010gh} donde
+  además de calcular la densidad de reliquia, y la sección eficaz
+  WIMP-nucleon, se pueden obtener todas las secciones eficaces y
+  amplitudes de decaimiento con el formato SLHA, lo que facilitará las
+  simulaciones para el LHC.
+\end{proyecto}
+\end{darkmatter}
+
+\begin{proyecto}
+  Para el modelo con con ruptura de paridad R a través de términos
+  trilineales del tipo $\lambda$, sólo hemos realizado el paso
+  \ref{item:5}, como un modelo que contiene un candidato inestable de
+  materia oscura que explica el exceso de positrones observado por
+  PAMELA. En este proyecto queremos adicionar al modelo la posibilidad
+  de explicar las masas y mezclas de neutrinos y avanzar en los demás
+  pasos de la metodología.
+\end{proyecto}
+
+A través de todo el proyecto se requiere de una infraestructura de
+computación de alto rendimiento adecuada, que garantice una
+disponibilidad permanente de poder de computo para las diferentes
+simulaciones y programas computacionales que requiere el proyecto. El
+grupo ha venido consolidando sus herramientas de computación con la
+adquisición de un servidor Blade con capacidad para 8 nodos, aunque de
+momento sólo tiene un nodo instalado. Toda esta experiencia le ha
+permitido consolidar un grupo de desarrolladores y administradores de
+software científico que ahora conforman La división de ciencias de la
+computación del grupo la cual es ahora la encargada de administrar el
+Centro Regional de Simulación y Cálculo Avanzado (CRESCA).  Una de las
+metas prioritarias es la unificar el poder de computo de los Grupos de
+Investigación de la Universidad en un Grid Institucional que la vez
+éste conectado con Grid-Colombia. En el proyecto solicitamos la
+renovación del contrato al Administrador de Sistemas, que dedicaría
+parte de su tiempo para la administración de CRESCA y la
+implementación del Grid Institucional de computación de alto
+rendimiento.
+
+\begin{ideas}
+  
+
+Para un modelo que incluya mecanismos de generación radiativa de masas de neutrinos se determina el espacio de parámetros compatible con los datos experimentales sobre física de neutrinos, se calculan los branchings de decaimiento y las secciones eficaces y se establecen correlaciones entre estos observables y los datos de física de neutrinos [7]. Para el caso de VBPR todo esto ya ha sido implementado en el programa computacional SPheno [8]. Finalmente se hace una simulación con PYTHIA [9] de la factibilidad de descubrir el modelo en aceleradores, como hemos venido haciendo con VBPR en [1], y de la viabilidad de medir las correlaciones establecidas, que es uno de los objetivos del proyecto.
+
+Como hemos ya hecho en [3], obtendremos resultados numéricos para los flujos de rayos cósmicos  producidos en el decaimiento del CMOI usando PYTHIA. A partir de los resultados se analizará el tiempo de vida del CMOI  en términos de su masa con el fin de obtener y analizar cuáles serían las regiones del espacio de parámetros restringidas o excluidas por los experimentos de rayos cósmicos.
+
+En este proyecto haremos una implementación del modelo de seesaw radiativo en Micromegas  con el cual se pueden hacer los cálculos de densidad de reliquia, secciones eficaces, amplitudes de decaimiento, etc. Una vez establecidas las regiones del espacio de parámetros relevantes, se procederá con el método para mecanismos de generación radiativa de masas de neutrinos descrito anteriormente.
+\end{ideas}
+
+\begin{ideas}
 Los elementos teóricos y conceptuales fundamentales del proyecto que queremos desarrollar
 son los siguientes:
 
@@ -25,10 +184,10 @@ Para un modelo que incluya mecanismos de generación radiativa de masas de neutr
 %El modelo de seesaw raditivo se estudiara a traves del paquete computacinal micrOMEGAs, con el cual se hacen actualmente a nivel mundial los calculos de densidad de reliquia, secciones eficaces, amplitudes de decaimiento, entre otros en modelos genéricos que pretendan tener canddatos para materia oscura. Además, desarrollaremos scripts que nos permitan hacer el estudio del comportamiento del sector de neutrinos del modelo, para poder compararlo con las observaciones.
 
 Para el caso de modelos con ruptura de paridad $R$ del tipo $\lambda$ y carga $n\ge 0$ debemos encontrar una forma analítica que nos permita predecir el tamaño de los acoplamientos, y entonces establecer observables para el LHC que sean independientes del valor específico de $n$ y que nos permitan hacer predicciones que sean compatibles con las hipótesis de la simetría horizontal usada. Así mismo deberemos determinar la carga fraccionaria más óptima de los nuevos flavones que nos permita explicar de la mejor forma posible los resultados experimentales de oscilaciones de neutrinos y de materia oscura.
-
+\end{ideas}
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: Ficha-2011_bsm
+%%% TeX-master: "Ficha-2011_bsm"
 %%% End: 
 
