@@ -28,11 +28,11 @@
 %\setcitestyle{notesep={:}}
 \usepackage[punctsep]{collref}
 
-\setlength{\oddsidemargin}{0pt}
-\setlength{\evensidemargin}{0pt}
+\setlength{\oddsidemargin}{-1cm}
+\setlength{\evensidemargin}{-1cm}
 \setlength{\topmargin}{-1cm}
 \setlength{\textheight}{21.5cm}
-\setlength{\textwidth}{17cm}
+\setlength{\textwidth}{19cm}
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
@@ -64,15 +64,33 @@
 {\begingroup}{ \medskip \endgroup}
 %\excludecomment{darkmatter}
 
+\includecomment{gammalines}
+\specialcomment{gammalines}
+{\begingroup}{ \medskip \endgroup}
+\excludecomment{gammalines}
+
 
 \includecomment{proyecto}
 \specialcomment{proyecto}
 {\begingroup}{\endgroup}
+%\excludecomment{proyecto}
 
+
+\includecomment{soloproyecto}
+\specialcomment{soloproyecto}
+{\begingroup}{\endgroup}
+\excludecomment{soloproyecto}
+
+\includecomment{soloficha}
+\specialcomment{soloficha}
+{\begingroup}{\endgroup}
+%\excludecomment{soloficha}
+
+
+\renewcommand{\cite}[1]{\!}
 
 
 \begin{document}
-
 
 \begin{instrucciones}
   Del investigador para ser asociado:
@@ -100,35 +118,34 @@ extensión mayor de  30 páginas, incluidos anexos y bibliografía
 \end{instrucciones}
 
 
-\begin{center}
-\Large
-  Proyecto de Mediana Cuantía 2011\\
-  \textbf{Fenomenología de modelos con violación de número leptónico} 
-\end{center}
 
 % replace \include by \input at the end to check the pages
 % In branch release the full document will be generated
 %\input{Portada}
 
+\input{linea}
+\vspace{-0.5cm}
 \input{Planteamiento_del_Problema}
-\input{Marco_teorico}
+\vspace{-0.3cm}
+\begin{soloproyecto}
+  \input{Marco_teorico}
+\end{soloproyecto}
+\vspace{-0.3cm}
 \input{Objetivos}
+\vspace{-0.3cm}
 \input{Metodologia}
+\vspace{-0.3cm}
 \input{Resultados}
+\vspace{-0.3cm}
 \input{Cronograma}
+\vspace{-0.3cm}
 \input{Compromisos}
+\vspace{-0.3cm}
 \input{Estudiantes}
 
-
-\section{ Presupuesto}
-\begin{instrucciones}
-  ¿Los rubros son pertinentes? ¿Los montos son los adecuados para cumplir los objetivos del proyecto? ¿El número de investigadores y el tiempo de dedicación son adecuados?
-\end{instrucciones}
-Ver documento adjunto 
-
 %\newpage
-\bibliographystyle{apsrev4-1long}
-\bibliography{susy}%%,soko,snova,nu-rev06,parke-ref}
+%\bibliographystyle{apsrev4-1long}
+%\bibliography{susy}%%,soko,snova,nu-rev06,parke-ref}
 
 \end{document}
 

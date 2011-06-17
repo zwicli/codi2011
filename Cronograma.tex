@@ -26,31 +26,35 @@
   ángulo de mezcla atmosférico de neutrinos y el cociente decaimientos
   a dos cuerpos: $\tilde\chi_1^0\to W^\pm\mu^\mp$ sobre
   $\tilde\chi_1^0\to W^\pm\tau^\mp$, cuando el $W^\pm$ decae
-  hadrónicamente. En dicho código, es necesario reconstruir la masa
-  invariante del $W^\pm$ a partir de los jets a los que se desintegra
-  y usar cortes específicos de aislamiento de leptones para seleccionar
-  los $\mu$ y $\tau$ asociados a cada decaimiento del neutralino. En
-  ésta fase se modificará el programa para establecer el nivel de
-  precisión con la que se puede medir la correlación entre la longitud
-  de decaimiento del neutralino con la diferencia de masa atmosférica
-  al cuadrado.  El programa debe calcular la longitud de
-  decaimiento $L_0$ del neutralino y su error $\Delta L_0$, donde
-  $L_0$ está dada por
-  \begin{align}
-    L_0=\frac{L^{\text{lab}}}{p_{\tilde\chi_1^0}^{\text{reco}}}m_{\tilde\chi_1^0}^{\text{inv}}
-  \end{align}
-  con $L^{\text{lab}}$ la distancia desde el punto de interacción
-  hasta el punto en el espacio donde decae el neutralino, $p$ y $m$
-  son el cuadri-momentum y la masa invariante del neutralino. Para la
-  determinación de $\Delta L_0$ debemos hacer un programa que ajuste
-  las distribuciones gaussianas del cocientes
-  $\frac{L^{\text{lab}}}{p_{\tilde\chi_1^0}^{\text{reco}}}$ y de la
-  masa invariante $m_{\tilde\chi_1^0}^{\text{inv}}$. Similarmente, para
-  calcular el nivel de precisión con el que se puede llegar a medir la
-  correlación entre el ángulo de mezcla solar con los decaimientos a
-  tres cuerpos mediados por sfermiones con muones y electrones en los
-  estados finales, debemos modificar el programa para reconstruir este
-  tipo de decaimientos a tres cuerpos.
+  hadrónicamente. 
+%   \begin{soloproyecto}
+% En dicho código, es necesario reconstruir la masa
+%   invariante del $W^\pm$ a partir de los jets a los que se desintegra
+%   y usar cortes específicos de aislamiento de leptones para seleccionar
+%   los $\mu$ y $\tau$ asociados a cada decaimiento del neutralino. En
+%   ésta fase se modificará el programa para establecer el nivel de
+%   precisión con la que se puede medir la correlación entre la longitud
+%   de decaimiento del neutralino con la diferencia de masa atmosférica
+%   al cuadrado.  El programa debe calcular la longitud de
+%   decaimiento $L_0$ del neutralino y su error $\Delta L_0$, donde
+%   $L_0$ está dada por
+%   \begin{align}
+%     L_0=\frac{L^{\text{lab}}}{p_{\tilde\chi_1^0}^{\text{reco}}}m_{\tilde\chi_1^0}^{\text{inv}}
+%   \end{align}
+%   con $L^{\text{lab}}$ la distancia desde el punto de interacción
+%   hasta el punto en el espacio donde decae el neutralino, $p$ y $m$
+%   son el cuadri-momentum y la masa invariante del neutralino. Para la
+%   determinación de $\Delta L_0$ debemos hacer un programa que ajuste
+%   las distribuciones gaussianas del cocientes
+%   $\frac{L^{\text{lab}}}{p_{\tilde\chi_1^0}^{\text{reco}}}$ y de la
+%   masa invariante $m_{\tilde\chi_1^0}^{\text{inv}}$. Similarmente, para
+%   calcular el nivel de precisión con el que se puede llegar a medir la
+%   correlación entre el ángulo de mezcla solar con los decaimientos a
+%   tres cuerpos mediados por sfermiones con muones y electrones en los
+%   estados finales, debemos modificar el programa para reconstruir este
+%   tipo de decaimientos a tres cuerpos.    
+%   \end{soloproyecto}
+En ésta fase se modificará el programa para implementar las nuevas correlaciones propuestas.
 \end{proyecto}
 
 \begin{proyecto}
@@ -65,51 +69,53 @@
   En ésta parte del proceso se establecerán las condiciones sobre los
   cuatro cargas $H$ libres del modelo estándar supersimétrico con una
   simetría $U(1)_H$ con el fin de obtener un modelo de violación de
-  número leptónico a través de términos trilineales $\lambda$. Usando
-  las restricciones experimentales sobre los acoplamientos
-  individuales $\lambda$~\cite{Barbier:2004ez}, se establecerán las
-  posibles señales de decaimiento de la partícula supersimétrica más
-  liviana, que permitan comprobar el modelo propuesto en el
-  LHC. Adicionalmente se implementará el mecanismo seesaw para
-  explicar las masas y mezclas de neutrinos, introduciendo nuevos
-  flavones de carga fraccionaria.  En ésta parte se analizará de forma
-  sistemática las asignaciones de carga que permitan la generación de
-  texturas adecuadas de masas de neutrinos y a la vez mantengan
-  prohibidos los otros términos de ruptura de paridad R. De acuerdo a
-  exploraciones iniciales esperamos que en este caso la LSP deba ser
-  un gravitino si se quiere mantener un candidato a materia oscura
-  inestable. Para explorar las restricciones de los datos de
-  detección indirecta, se establecerá el background de rayos cósmicos,
-  asumiendo que las anomalías actuales se pueden explicar a partir de
-  fenómenos astrofísicos. Se hará una programa de simulación en
-  \texttt{Pythia} \cite{Sjostrand:2006za} para calcular el flujo de
-  positrones, y electrones, y se comparará con el background
-  astrofísico para establecer las regiones de tiempo de vida media y
-  masas de gravitinos que se pueden excluir a partir del los datos
-  actuales. También se evaluará el impacto de las futuras medidas de
-  positrones y electrones por parte PAMELA~\cite{Adriani:2008zr},
-  Fermi--LAT\cite{Abdo:2009zk} y AMS-02~\cite{ams:2009} en los modelos
-  estudiados. Es de resaltar que la simetría horizontal sólo permite
-  la aparición de términos $\lambda$ con los tres índices diferentes
-  por lo que los decaimientos del gravitino no pueden generar rayos
-  gamma.
+  número leptónico a través de términos trilineales $\lambda$ y con generación de masas de neutrinos.
+% Usando
+%   las restricciones experimentales sobre los acoplamientos
+%   individuales $\lambda$~\cite{Barbier:2004ez}, se establecerán las
+%   posibles señales de decaimiento de la partícula supersimétrica más
+%   liviana, que permitan comprobar el modelo propuesto en el
+%   LHC. Adicionalmente se implementará el mecanismo seesaw para
+%   explicar las masas y mezclas de neutrinos, introduciendo nuevos
+%   flavones de carga fraccionaria.  En ésta parte se analizará de forma
+%   sistemática las asignaciones de carga que permitan la generación de
+%   texturas adecuadas de masas de neutrinos y a la vez mantengan
+%   prohibidos los otros términos de ruptura de paridad R. De acuerdo a
+%   exploraciones iniciales esperamos que en este caso la LSP deba ser
+%   un gravitino si se quiere mantener un candidato a materia oscura
+%   inestable. Para explorar las restricciones de los datos de
+%   detección indirecta, se establecerá el background de rayos cósmicos,
+%   asumiendo que las anomalías actuales se pueden explicar a partir de
+%   fenómenos astrofísicos. Se hará una programa de simulación en
+%   \texttt{Pythia} \cite{Sjostrand:2006za} para calcular el flujo de
+%   positrones, y electrones, y se comparará con el background
+%   astrofísico para establecer las regiones de tiempo de vida media y
+%   masas de gravitinos que se pueden excluir a partir del los datos
+%   actuales. También se evaluará el impacto de las futuras medidas de
+%   positrones y electrones por parte PAMELA~\cite{Adriani:2008zr},
+%   Fermi--LAT\cite{Abdo:2009zk} y AMS-02~\cite{ams:2009} en los modelos
+%   estudiados. Es de resaltar que la simetría horizontal sólo permite
+%   la aparición de términos $\lambda$ con los tres índices diferentes
+%   por lo que los decaimientos del gravitino no pueden generar rayos
+%   gamma.
 \end{proyecto}
 
 \begin{darkmatter}
 \begin{proyecto}
-  Para el seesaw radiativo, escribiremos el Lagrangiano del modelo el
-  lenguaje de programación LanHEP~\cite{Semenov:2008jy}. Con este
-  programa podremos generar las cuatro tablas en el formato de
-  CalcHEP~\cite{Pukhov:2004ca}, el cual podemos usar para calcular las
-  secciones eficaces y las amplitudes de decaimiento del modelo.  Como
-  MicrOMEGAS usa internamente CalcHEP, también podremos calcular la
-  densidad de reliquia y la sección eficaz WIMP-nucleón del
-  modelo. Debemos crear también una interfase en Python para hacer los
-  llamados a los diferentes cálculos y para implementar las regiones
-  del espacio de parámetros que son compatibles con los datos de
-  oscilaciones de neutrinos. Paralelamente debemos hacer cálculos
-  analíticos de las secciones eficaces promediadas térmicamente para
-  estar seguros que los resultados de MicroMEGAS son correctos.
+  Para el seesaw radiativo, implementaremos el modelo en MicrOMEGAS.
+% escribiremos el Lagrangiano del modelo el
+%   lenguaje de programación LanHEP~\cite{Semenov:2008jy}. Con este
+%   programa podremos generar las cuatro tablas en el formato de
+%   CalcHEP~\cite{Pukhov:2004ca}, el cual podemos usar para calcular las
+%   secciones eficaces y las amplitudes de decaimiento del modelo.  Como
+%   MicrOMEGAS usa internamente CalcHEP, también podremos calcular la
+%   densidad de reliquia y la sección eficaz WIMP-nucleón del
+%   modelo. Debemos crear también una interfase en Python para hacer los
+%   llamados a los diferentes cálculos y para implementar las regiones
+%   del espacio de parámetros que son compatibles con los datos de
+%   oscilaciones de neutrinos. Paralelamente debemos hacer cálculos
+%   analíticos de las secciones eficaces promediadas térmicamente para
+%   estar seguros que los resultados de MicroMEGAS son correctos.
 \end{proyecto}
 \end{darkmatter}
 
